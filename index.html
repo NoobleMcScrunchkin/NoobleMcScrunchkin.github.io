@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/siema.min.js"></script>
+    <script src="js/index.min.js"></script>
+    <script src="js/app.js"></script>
+    <title>Valorant - Strat Roulette</title>
+</head>
+
+<body class="min-h-screen bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 p-4">
+    <div
+        class="flex flex-col container mx-auto min-h-full bg-zinc-200 dark:bg-zinc-800 border-4 border-zinc-300 dark:border-zinc-700">
+        <div class="w-full font-valorant text-6xl pt-10 pb-6 text-center select-none">
+            VALORANT<br>
+            STRAT ROULETTE
+        </div>
+        <div class="w-full flex flex-col text-center">
+            <div class="w-full py-4 bg-zinc-300 dark:bg-zinc-700 text-4xl select-none">
+                Settings
+            </div>
+            <div class="w-full py-4 text-2xl border-b-4 border-zinc-300 dark:border-zinc-700">
+                <div class="form-check">
+                    <input
+                        class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                        type="checkbox" name="defaultTasksInp" id="defaultTasksInp" checked disabled>
+                    <label class="form-check-label" for="defaultTasksInp">Default Tasks</label>
+                </div>
+                <div class="form-check mt-2">
+                    <input
+                        class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-white dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                        type="checkbox" name="customTasksInp" id="customTasksInp" disabled>
+                    <label class="form-check-label" for="customTasksInp">Custom Tasks</label>
+                </div>
+                <div>
+                    <input id="tasksInput" accept=".json" type="file" name="tasksInput" hidden>
+                    <button
+                        class="mt-4 py-2 px-6 bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-300 hover:dark:bg-zinc-700 rounded"
+                        onclick="document.querySelector('#tasksInput').click()">Upload Custom Tasks</button>
+                </div>
+                <div>
+                    <button
+                        class="mt-4 py-2 px-6 bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-300 hover:dark:bg-zinc-700 rounded"
+                        onclick="openPopup()">Open Popup</button>
+                </div>
+            </div>
+        </div>
+        <div class="w-full flex flex-col text-center mt-2">
+            <div class="w-full py-4 bg-zinc-300 dark:bg-zinc-700 text-4xl select-none">
+                Character Randomizer
+            </div>
+            <div class="w-full relative py-4 border-b-4 border-zinc-300 dark:border-zinc-700 text-2xl select-none">
+                <div class="justify-between">
+                    <div class="inline-block h-24 w-24 relative">
+                        <div class="absolute top-0 left-0 w-24 h-24 z-index-10 cursor-pointer">
+                            <img id="playerIcon1" class="h-24 aspect-square" src="https://via.placeholder.com/128"
+                                alt="Agent">
+                        </div>
+                        <div id="agentsSelect1"
+                            class="absolute top-0 left-0 bg-zinc-100 dark:bg-zinc-900 border-2 border-zinc-300 dark:border-zinc-700 p-2 w-48 -translate-x-1/4 z-20 hidden rounded">
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="astra1" id="astra1">
+                                <label for="astra1">Astra</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="breach1" id="breach1">
+                                <label for="breach1">Breach</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="brimstone1" id="brimstone1" checked disabled>
+                                <label for="brimstone1">Brimstone</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="chamber1" id="chamber1">
+                                <label for="chamber1">Chamber</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="cypher1" id="cypher1">
+                                <label for="cypher1">Cypher</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="jett1" id="jett1" checked disabled>
+                                <label for="jett1">Jett</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="kayo1" id="kayo1">
+                                <label for="kayo1">Kayo</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="killjoy1" id="killjoy1">
+                                <label for="killjoy1">Killjoy</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="neon1" id="neon1">
+                                <label for="neon1">Neon</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="omen1" id="omen1">
+                                <label for="omen1">Omen</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="phoenix1" id="phoenix1" checked disabled>
+                                <label for="phoenix1">Phoenix</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="raze1" id="raze1">
+                                <label for="raze1">Raze</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="reyna1" id="reyna1">
+                                <label for="reyna1">Reyna</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="sage1" id="sage1" checked disabled>
+                                <label for="sage1">Sage</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="skye1" id="skye1">
+                                <label for="skye1">Skye</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="sova1" id="sova1" checked disabled>
+                                <label for="sova1">Sova</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="viper1" id="viper1">
+                                <label for="viper1">Viper</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="yoru1" id="yoru1">
+                                <label for="yoru1">Yoru</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inline-block h-24 w-24 relative">
+                        <div class="absolute top-0 left-0 w-24 h-24 z-index-10 cursor-pointer">
+                            <img id="playerIcon2" class="h-24 aspect-square" src="https://via.placeholder.com/128"
+                                alt="Agent">
+                        </div>
+                        <div id="agentsSelect2"
+                            class="absolute top-0 left-0 bg-zinc-100 dark:bg-zinc-900 border-2 border-zinc-300 dark:border-zinc-700 p-2 w-48 -translate-x-1/4 z-20 hidden rounded">
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="astra2" id="astra2">
+                                <label for="astra2">Astra</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="breach2" id="breach2">
+                                <label for="breach2">Breach</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="brimstone2" id="brimstone2" checked disabled>
+                                <label for="brimstone2">Brimstone</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="chamber2" id="chamber2">
+                                <label for="chamber2">Chamber</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="cypher2" id="cypher2">
+                                <label for="cypher2">Cypher</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="jett2" id="jett2" checked disabled>
+                                <label for="jett2">Jett</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="kayo2" id="kayo2">
+                                <label for="kayo2">Kayo</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="killjoy2" id="killjoy2">
+                                <label for="killjoy2">Killjoy</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="neon2" id="neon2">
+                                <label for="neon2">Neon</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="omen2" id="omen2">
+                                <label for="omen2">Omen</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="phoenix2" id="phoenix2" checked disabled>
+                                <label for="phoenix2">Phoenix</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="raze2" id="raze2">
+                                <label for="raze2">Raze</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="reyna2" id="reyna2">
+                                <label for="reyna2">Reyna</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="sage2" id="sage2" checked disabled>
+                                <label for="sage2">Sage</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="skye2" id="skye2">
+                                <label for="skye2">Skye</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="sova2" id="sova2" checked disabled>
+                                <label for="sova2">Sova</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="viper2" id="viper2">
+                                <label for="viper2">Viper</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="yoru2" id="yoru2">
+                                <label for="yoru2">Yoru</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inline-block h-24 w-24 relative">
+                        <div class="absolute top-0 left-0 w-24 h-24 z-index-10 cursor-pointer">
+                            <img id="playerIcon3" class="h-24 aspect-square" src="https://via.placeholder.com/128"
+                                alt="Agent">
+                        </div>
+                        <div id="agentsSelect3"
+                            class="absolute top-0 left-0 bg-zinc-100 dark:bg-zinc-900 border-2 border-zinc-300 dark:border-zinc-700 p-2 w-48 -translate-x-1/4 z-20 hidden rounded">
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="astra3" id="astra3">
+                                <label for="astra3">Astra</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="breach3" id="breach3">
+                                <label for="breach3">Breach</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="brimstone3" id="brimstone3" checked disabled>
+                                <label for="brimstone3">Brimstone</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="chamber3" id="chamber3">
+                                <label for="chamber3">Chamber</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="cypher3" id="cypher3">
+                                <label for="cypher3">Cypher</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="jett3" id="jett3" checked disabled>
+                                <label for="jett3">Jett</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="kayo3" id="kayo3">
+                                <label for="kayo3">Kayo</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="killjoy3" id="killjoy3">
+                                <label for="killjoy3">Killjoy</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="neon3" id="neon3">
+                                <label for="neon3">Neon</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="omen3" id="omen3">
+                                <label for="omen3">Omen</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="phoenix3" id="phoenix3" checked disabled>
+                                <label for="phoenix3">Phoenix</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="raze3" id="raze3">
+                                <label for="raze3">Raze</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="reyna3" id="reyna3">
+                                <label for="reyna3">Reyna</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="sage3" id="sage3" checked disabled>
+                                <label for="sage3">Sage</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="skye3" id="skye3">
+                                <label for="skye3">Skye</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="sova3" id="sova3" checked disabled>
+                                <label for="sova3">Sova</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="viper3" id="viper3">
+                                <label for="viper3">Viper</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="yoru3" id="yoru3">
+                                <label for="yoru3">Yoru</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inline-block h-24 w-24 relative">
+                        <div class="absolute top-0 left-0 w-24 h-24 z-index-10 cursor-pointer">
+                            <img id="playerIcon4" class="h-24 aspect-square" src="https://via.placeholder.com/128"
+                                alt="Agent">
+                        </div>
+                        <div id="agentsSelect4"
+                            class="absolute top-0 left-0 bg-zinc-100 dark:bg-zinc-900 border-2 border-zinc-300 dark:border-zinc-700 p-2 w-48 -translate-x-1/4 z-20 hidden rounded">
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="astra4" id="astra4">
+                                <label for="astra4">Astra</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="breach4" id="breach4">
+                                <label for="breach4">Breach</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="brimstone4" id="brimstone4" checked disabled>
+                                <label for="brimstone4">Brimstone</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="chamber4" id="chamber4">
+                                <label for="chamber4">Chamber</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="cypher4" id="cypher4">
+                                <label for="cypher4">Cypher</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="jett4" id="jett4" checked disabled>
+                                <label for="jett4">Jett</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="kayo4" id="kayo4">
+                                <label for="kayo4">Kayo</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="killjoy4" id="killjoy4">
+                                <label for="killjoy4">Killjoy</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="neon4" id="neon4">
+                                <label for="neon4">Neon</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="omen4" id="omen4">
+                                <label for="omen4">Omen</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="phoenix4" id="phoenix4" checked disabled>
+                                <label for="phoenix4">Phoenix</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="raze4" id="raze4">
+                                <label for="raze4">Raze</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="reyna4" id="reyna4">
+                                <label for="reyna4">Reyna</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="sage4" id="sage4" checked disabled>
+                                <label for="sage4">Sage</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="skye4" id="skye4">
+                                <label for="skye4">Skye</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="sova4" id="sova4" checked disabled>
+                                <label for="sova4">Sova</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="viper4" id="viper4">
+                                <label for="viper4">Viper</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="yoru4" id="yoru4">
+                                <label for="yoru4">Yoru</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inline-block h-24 w-24 relative">
+                        <div class="absolute top-0 left-0 w-24 h-24 z-index-10 cursor-pointer">
+                            <img id="playerIcon5" class="h-24 aspect-square" src="https://via.placeholder.com/128"
+                                alt="Agent">
+                        </div>
+                        <div id="agentsSelect5"
+                            class="absolute top-0 left-0 bg-zinc-100 dark:bg-zinc-900 border-2 border-zinc-300 dark:border-zinc-700 p-2 w-48 -translate-x-1/4 z-20 hidden rounded">
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="astra5" id="astra5">
+                                <label for="astra5">Astra</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="breach5" id="breach5">
+                                <label for="breach5">Breach</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="brimstone5" id="brimstone5" checked disabled>
+                                <label for="brimstone5">Brimstone</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="chamber5" id="chamber5">
+                                <label for="chamber5">Chamber</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="cypher5" id="cypher5">
+                                <label for="cypher5">Cypher</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="jett5" id="jett5" checked disabled>
+                                <label for="jett5">Jett</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="kayo5" id="kayo5">
+                                <label for="kayo5">Kayo</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="killjoy5" id="killjoy5">
+                                <label for="killjoy5">Killjoy</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="neon5" id="neon5">
+                                <label for="neon5">Neon</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="omen5" id="omen5">
+                                <label for="omen5">Omen</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="phoenix5" id="phoenix5" checked disabled>
+                                <label for="phoenix5">Phoenix</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="raze5" id="raze5">
+                                <label for="raze5">Raze</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="reyna5" id="reyna5">
+                                <label for="reyna5">Reyna</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="sage5" id="sage5" checked disabled>
+                                <label for="sage5">Sage</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="skye5" id="skye5">
+                                <label for="skye5">Skye</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="sova5" id="sova5" checked disabled>
+                                <label for="sova5">Sova</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="viper5" id="viper5">
+                                <label for="viper5">Viper</label>
+                            </div>
+                            <div>
+                                <input
+                                    class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                                    type="checkbox" checked name="yoru5" id="yoru5">
+                                <label for="yoru5">Yoru</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="agentRandomizeBtn"
+                    class="mt-4 py-2 px-6 bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-300 hover:dark:bg-zinc-700 rounded">
+                    Randomize
+                </button>
+            </div>
+        </div>
+        <div class="w-full flex flex-col text-center mt-2">
+            <div class="w-full py-4 bg-zinc-300 dark:bg-zinc-700 text-4xl select-none">
+                Select Map
+            </div>
+            <div class="w-full relative py-4 border-b-4 border-zinc-300 dark:border-zinc-700 text-2xl select-none">
+                <div class="w-full h-40 map-siema">
+                    <div class="w-full h-40">
+                        <div class="text-3xl">Ascent</div>
+                        <img class="h-28 aspect-video mx-auto rounded" src="img/maps/ascent.webp" alt="ascent">
+                    </div>
+                    <div class="w-full h-40">
+                        <div class="text-3xl">Bind</div>
+                        <img class="h-28 aspect-video mx-auto rounded" src="img/maps/bind.webp" alt="bind">
+                    </div>
+                    <div class="w-full h-40">
+                        <div class="text-3xl">Breeze</div>
+                        <img class="h-28 aspect-video mx-auto rounded" src="img/maps/breeze.webp" alt="breeze">
+                    </div>
+                    <div class="w-full h-40">
+                        <div class="text-3xl">Fracture</div>
+                        <img class="h-28 aspect-video mx-auto rounded" src="img/maps/fracture.webp" alt="fracture">
+                    </div>
+                    <div class="w-full h-40">
+                        <div class="text-3xl">Haven</div>
+                        <img class="h-28 aspect-video mx-auto rounded" src="img/maps/haven.webp" alt="haven">
+                    </div>
+                    <div class="w-full h-40">
+                        <div class="text-3xl">Icebox</div>
+                        <img class="h-28 aspect-video mx-auto rounded" src="img/maps/icebox.webp" alt="icebox">
+                    </div>
+                    <div class="w-full h-40">
+                        <div class="text-3xl">Split</div>
+                        <img class="h-28 aspect-video mx-auto rounded" src="img/maps/split.webp" alt="split">
+                    </div>
+                </div>
+                <div id="mapPrev"
+                    class="absolute left-4 top-1/2 -translate-y-1/2 w-8 h-8 p-1 rounded-full bg-zinc-100 dark:bg-zinc-900 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" class="w-full h-full"
+                        fill="currentColor">
+                        <!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path
+                            d="M137.4 406.6l-128-127.1C3.125 272.4 0 264.2 0 255.1s3.125-16.38 9.375-22.63l128-127.1c9.156-9.156 22.91-11.9 34.88-6.943S192 115.1 192 128v255.1c0 12.94-7.781 24.62-19.75 29.58S146.5 415.8 137.4 406.6z" />
+                    </svg>
+                </div>
+                <div id="mapNext"
+                    class="absolute right-4 top-1/2 -translate-y-1/2 w-8 h-8 p-1 rounded-full bg-zinc-100 dark:bg-zinc-900 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" class="w-full h-full"
+                        fill="currentColor">
+                        <!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path
+                            d="M118.6 105.4l128 127.1C252.9 239.6 256 247.8 256 255.1s-3.125 16.38-9.375 22.63l-128 127.1c-9.156 9.156-22.91 11.9-34.88 6.943S64 396.9 64 383.1V128c0-12.94 7.781-24.62 19.75-29.58S109.5 96.23 118.6 105.4z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="w-full flex flex-col text-center mt-2">
+            <div class="w-full py-4 bg-zinc-300 dark:bg-zinc-700 text-4xl select-none">
+                Select Team
+            </div>
+            <div class="w-full py-4 border-b-4 border-zinc-300 dark:border-zinc-700 text-2xl">
+                <button id="attackBtn"
+                    class="py-2 px-6 bg-red-200 dark:bg-red-900 hover:bg-red-400 hover:dark:bg-red-700 rounded">Attack</button>
+                <button id="defenceBtn"
+                    class="ml-8 py-2 px-6 bg-blue-200 dark:bg-blue-900 hover:bg-blue-400 hover:dark:bg-blue-700 rounded">Defence</button>
+            </div>
+        </div>
+        <div class="w-full flex flex-col text-center mt-2">
+            <div class="w-full py-4 bg-zinc-300 dark:bg-zinc-700 text-4xl select-none">
+                Task
+            </div>
+            <div class="w-full py-4 text-2xl">
+                <div id="taskArea">
+                    Please select a team.
+                </div>
+                <button id="taskRandomizeBtn"
+                    class="mt-4 py-2 px-6 bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-300 hover:dark:bg-zinc-700 rounded">
+                    New Task
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let customTasksAllowed = false;
+        let defaultTasksAllowed = true;
+        let customTasks = [];
+
+        const customTasksInp = document.querySelector('#customTasksInp');
+        const defaultTasksInp = document.querySelector('#defaultTasksInp');
+        defaultTasksInp.onchange = () => {
+            defaultTasksAllowed = defaultTasksInp.checked;
+            if (customTasks.length == 0 || customTasksAllowed == false) {
+                defaultTasksAllowed = true;
+                defaultTasksInp.checked = true;
+            }
+            if (defaultTasksAllowed == false) {
+                customTasksInp.disabled = true;
+                console.log(1);
+            } else {
+                customTasksInp.disabled = false;
+            }
+        }
+        customTasksInp.onchange = () => {
+            if (customTasks.length != 0) {
+                customTasksAllowed = customTasksInp.checked;
+                defaultTasksInp.disabled = false;
+                if (customTasksAllowed == false) {
+                    defaultTasksAllowed = true;
+                    defaultTasksInp.checked = true;
+                    defaultTasksInp.disabled = true;
+                }
+            } else {
+                customTasksAllowed = false;
+                customTasksInp.checked = false;
+                defaultTasksAllowed = true;
+                defaultTasksInp.checked = true;
+            }
+        }
+
+        const tasksInput = document.querySelector('#tasksInput');
+        tasksInput.addEventListener('change', handleFileSelect, false)
+
+        randomizeAgents();
+        const agentRandomizeBtn = document.querySelector('#agentRandomizeBtn');
+        agentRandomizeBtn.onclick = () => {
+            randomizeAgents();
+        }
+
+        const mapSiema = new Siema({
+            selector: '.map-siema',
+            perPage: 1,
+        });
+
+        const mapNext = document.querySelector('#mapNext');
+        const mapPrev = document.querySelector('#mapPrev');
+        mapNext.onclick = () => {
+            mapSiema.next();
+        };
+        mapPrev.onclick = () => {
+            mapSiema.prev();
+        };
+
+        let team = undefined;
+        const attackBtn = document.querySelector('#attackBtn');
+        const defenceBtn = document.querySelector('#defenceBtn');
+        attackBtn.onclick = () => {
+            team = 'attack';
+            attackBtn.classList.remove('bg-red-200');
+            attackBtn.classList.remove('dark:bg-red-900');
+            attackBtn.classList.remove('hover:bg-red-400');
+            attackBtn.classList.remove('hover:dark:bg-red-700');
+            attackBtn.classList.add('bg-red-400');
+            attackBtn.classList.add('dark:bg-red-700');
+            defenceBtn.classList.add('bg-blue-200');
+            defenceBtn.classList.add('dark:bg-blue-900');
+            defenceBtn.classList.add('hover:bg-blue-400');
+            defenceBtn.classList.add('hover:dark:bg-blue-700');
+            defenceBtn.classList.remove('bg-blue-400');
+            defenceBtn.classList.remove('dark:bg-blue-700');
+        }
+        defenceBtn.onclick = () => {
+            team = 'defence';
+            defenceBtn.classList.remove('bg-blue-200');
+            defenceBtn.classList.remove('dark:bg-blue-900');
+            defenceBtn.classList.remove('hover:bg-blue-400');
+            defenceBtn.classList.remove('hover:dark:bg-blue-700');
+            defenceBtn.classList.add('bg-blue-400');
+            defenceBtn.classList.add('dark:bg-blue-700');
+            attackBtn.classList.add('bg-red-200');
+            attackBtn.classList.add('dark:bg-red-900');
+            attackBtn.classList.add('hover:bg-red-400');
+            attackBtn.classList.add('hover:dark:bg-red-700');
+            attackBtn.classList.remove('bg-red-400');
+            attackBtn.classList.remove('dark:bg-red-700');
+        }
+
+        const taskRandomizeBtn = document.querySelector('#taskRandomizeBtn');
+        taskRandomizeBtn.onclick = () => {
+            randomizeTask();
+        }
+
+        document.body.onclick = (event) => {
+            for (let i = 1; i <= 5; i++) {
+                if (!document.getElementById(`playerIcon${i}`).contains(event.target) && !document.getElementById(`agentsSelect${i}`).contains(event.target)) {
+                    document.getElementById(`agentsSelect${i}`).classList.add('hidden');
+                }
+            }
+        }
+
+        for (let i = 1; i <= 5; i++) {
+            document.getElementById(`playerIcon${i}`).onclick = () => {
+                document.getElementById(`agentsSelect${i}`).classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+
+</html>

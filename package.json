@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "tailwindcss": "^3.0.23"
+  },
+  "dependencies": {
+    "siema": "^1.5.1",
+    "tw-elements": "^1.0.0-alpha11"
+  }
+}

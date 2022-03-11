@@ -1,0 +1,33 @@
+[
+    {
+        "desc": "This is a task that the players have to do. #1",
+        "restrictions": {
+            "map": [
+                "ascent",
+                "split"
+            ]
+        }
+    },
+    {
+        "desc": "This is a task that the players have to do. #2",
+        "restrictions": {
+            "agent": [
+                "reyna",
+                "sage"
+            ]
+        }
+    },
+    {
+        "desc": "This is a task that the players have to do. #3",
+        "restrictions": {
+            "agent": [
+                "reyna",
+                "sage"
+            ],
+            "team": "attack"
+        }
+    },
+    {
+        "desc": "This is a task that the players have to do. #4"
+    }
+]

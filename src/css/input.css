@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: valorant;
+    src: url('../fonts/Valorant Font.ttf');
+}
+
+.font-valorant {
+    font-family: valorant;
+}
+
+*::-webkit-scrollbar {
+    width: 12px;
+    /* width of the entire scrollbar */
+}
+
+*::-webkit-scrollbar-track {
+    background-color: rgb(244 244 245);
+    /* color of the tracking area */
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: rgb(39 39 42);
+    border-radius: 20px;
+    border: 3px solid rgb(244 244 245);
+}
+
+@media (prefers-color-scheme: dark) {
+    .dark\:invert {
+        filter: invert;
+    }
+
+    *::-webkit-scrollbar-track {
+        background-color: rgb(39 39 42);
+        /* color of the tracking area */
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background-color: rgb(244 244 245);
+        border-radius: 20px;
+        border: 3px solid rgb(39 39 42);
+    }
+}
