@@ -1,6 +1,6 @@
 module.exports = {
   purge: ['./**/*.html'],
-  content: ['./**/*.html', './node_modules/tw-elements/dist/js/**/*.js'],
+  content: ['./**/*.html', './**/*.js', './node_modules/tw-elements/dist/js/**/*.js'],
   theme: {
     extend: {
       colors: {
