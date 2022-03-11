@@ -16,7 +16,7 @@ openPopup = () => {
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-            <link rel="stylesheet" href="css/styles.css?v=1.5">
+            <link rel="stylesheet" href="css/styles.css?v=1.6">
             <title>Valorant - Strat Roulette</title>
         </head>
         <body class="bg-green-500 min-h-screen text-center p-4 text-white select-none">
@@ -311,6 +311,55 @@ let defaultTasks = [
         "restrictions": {
             "team": "defence"
         }
+    },
+    {
+        "desc": "Teleporters Galore: Everyone must teleport at least twice before planting",
+        "restrictions": {
+            "map": "bind"
+        }
+    },
+    {
+        "desc": "Smoke Break: If defending go to hookah and defend it until spike is planted",
+        "restrictions": {
+            "map": "bind"
+        }
+    },
+    {
+        "desc": "Wrong site: If attackers you must go to the other site first then to spawn before planting",
+        "restrictions": {
+            "map": "breeze"
+        }
+    },
+    {
+        "desc": "Just Hanging: You must take zipwires until an enemy spots you",
+        "restrictions": {
+            "map": "fracture"
+        }
+    },
+    {
+        "desc": "Zippidy doo dah: You must cross zipwires 3 times before killing anyone",
+        "restrictions": {
+            "map": "fracture"
+        }
+    },
+    {
+        "desc": "Gambling: If on defense all team must hold from one spikesite",
+        "restrictions": {
+            "map": "haven",
+            "team": "defence"
+        }
+    },
+    {
+        "desc": "Zipwire wee: Go to A and you have to take the zipwire",
+        "restrictions": {
+            "map": "icebox"
+        }
+    },
+    {
+        "desc": "Ropes are gross: No ropes allowed this round",
+        "restrictions": {
+            "map": "split"
+        }
     }
 ];
 
@@ -329,7 +378,7 @@ getJSON = (url, callback) => {
     xhr.send();
 };
 
-getJSON('defaultTasks.json', (error, res) => {
+getJSON('defaultTasks.json?v=1.6', (error, res) => {
     if (error) {
         console.error(error);
         return;

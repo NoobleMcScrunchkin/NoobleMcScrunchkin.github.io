@@ -142,5 +142,54 @@
         "restrictions": {
             "team": "defence"
         }
+    },
+    {
+        "desc": "Teleporters Galore: Everyone must teleport at least twice before planting",
+        "restrictions": {
+            "map": "bind"
+        }
+    },
+    {
+        "desc": "Smoke Break: If defending go to hookah and defend it until spike is planted",
+        "restrictions": {
+            "map": "bind"
+        }
+    },
+    {
+        "desc": "Wrong site: If attackers you must go to the other site first then to spawn before planting",
+        "restrictions": {
+            "map": "breeze"
+        }
+    },
+    {
+        "desc": "Just Hanging: You must take zipwires until an enemy spots you",
+        "restrictions": {
+            "map": "fracture"
+        }
+    },
+    {
+        "desc": "Zippidy doo dah: You must cross zipwires 3 times before killing anyone",
+        "restrictions": {
+            "map": "fracture"
+        }
+    },
+    {
+        "desc": "Gambling: If on defense all team must hold from one spikesite",
+        "restrictions": {
+            "map": "haven",
+            "team": "defence"
+        }
+    },
+    {
+        "desc": "Zipwire wee: Go to A and you have to take the zipwire",
+        "restrictions": {
+            "map": "icebox"
+        }
+    },
+    {
+        "desc": "Ropes are gross: No ropes allowed this round",
+        "restrictions": {
+            "map": "split"
+        }
     }
 ]
