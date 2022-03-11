@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/siema.min.js"></script>
     <script src="js/index.min.js"></script>
-    <script src="js/app.js?v=1.01"></script>
+    <script src="js/app.js?v=1.1"></script>
     <title>Valorant - Strat Roulette</title>
 </head>
 
@@ -58,10 +58,15 @@
             </div>
             <div class="w-full relative py-4 border-b-4 border-zinc-300 dark:border-zinc-700 text-2xl select-none">
                 <div class="justify-between">
-                    <div class="inline-block h-24 w-24 relative">
-                        <div class="absolute top-0 left-0 w-24 h-24 z-index-10 cursor-pointer">
+                    <div class="inline-block h-32 w-24 relative">
+                        <div class="absolute top-0 left-0 w-24 h-24 z-10 cursor-pointer">
                             <img id="playerIcon1" class="h-24 aspect-square" src="https://via.placeholder.com/128"
                                 alt="Agent">
+                        </div>
+                        <div class="absolute top-24 left-0 w-24 h-8 z-10">
+                            <button
+                                class="mt-2 w-24 h-6 bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-300 hover:dark:bg-zinc-700 rounded text-sm"
+                                onclick="randomizeAgent(1)">Randomize</button>
                         </div>
                         <div id="agentsSelect1"
                             class="absolute top-0 left-0 bg-zinc-100 dark:bg-zinc-900 border-2 border-zinc-300 dark:border-zinc-700 p-2 w-48 -translate-x-1/4 z-20 hidden rounded">
@@ -69,116 +74,121 @@
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="astra1" id="astra1">
-                                <label for="astra1">Astra</label>
+                                <label for="astra1" class="cursor-pointer" onclick="setPlayerAgent(event, 1, 0)">Astra</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="breach1" id="breach1">
-                                <label for="breach1">Breach</label>
+                                <label for="breach1" class="cursor-pointer" onclick="setPlayerAgent(event, 1, 1)">Breach</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="brimstone1" id="brimstone1" checked disabled>
-                                <label for="brimstone1">Brimstone</label>
+                                <label for="brimstone1" class="cursor-pointer" onclick="setPlayerAgent(event, 1, 2)">Brimstone</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="chamber1" id="chamber1">
-                                <label for="chamber1">Chamber</label>
+                                <label for="chamber1" class="cursor-pointer" onclick="setPlayerAgent(event, 1, 3)">Chamber</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="cypher1" id="cypher1">
-                                <label for="cypher1">Cypher</label>
+                                <label for="cypher1" class="cursor-pointer" onclick="setPlayerAgent(event, 1, 4)">Cypher</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="jett1" id="jett1" checked disabled>
-                                <label for="jett1">Jett</label>
+                                <label for="jett1" class="cursor-pointer" onclick="setPlayerAgent(event, 1, 5)">Jett</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="kayo1" id="kayo1">
-                                <label for="kayo1">Kayo</label>
+                                <label for="kayo1" class="cursor-pointer" onclick="setPlayerAgent(event, 1, 6)">Kayo</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="killjoy1" id="killjoy1">
-                                <label for="killjoy1">Killjoy</label>
+                                <label for="killjoy1" class="cursor-pointer" onclick="setPlayerAgent(event, 1, 7)">Killjoy</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="neon1" id="neon1">
-                                <label for="neon1">Neon</label>
+                                <label for="neon1" class="cursor-pointer" onclick="setPlayerAgent(event, 1, 8)">Neon</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="omen1" id="omen1">
-                                <label for="omen1">Omen</label>
+                                <label for="omen1" class="cursor-pointer" onclick="setPlayerAgent(event, 1, 9)">Omen</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="phoenix1" id="phoenix1" checked disabled>
-                                <label for="phoenix1">Phoenix</label>
+                                <label for="phoenix1" class="cursor-pointer" onclick="setPlayerAgent(event, 1, 10)">Phoenix</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="raze1" id="raze1">
-                                <label for="raze1">Raze</label>
+                                <label for="raze1" class="cursor-pointer" onclick="setPlayerAgent(event, 1, 11)">Raze</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="reyna1" id="reyna1">
-                                <label for="reyna1">Reyna</label>
+                                <label for="reyna1" class="cursor-pointer" onclick="setPlayerAgent(event, 1, 12)">Reyna</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="sage1" id="sage1" checked disabled>
-                                <label for="sage1">Sage</label>
+                                <label for="sage1" class="cursor-pointer" onclick="setPlayerAgent(event, 1, 13)">Sage</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="skye1" id="skye1">
-                                <label for="skye1">Skye</label>
+                                <label for="skye1" class="cursor-pointer" onclick="setPlayerAgent(event, 1, 14)">Skye</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="sova1" id="sova1" checked disabled>
-                                <label for="sova1">Sova</label>
+                                <label for="sova1" class="cursor-pointer" onclick="setPlayerAgent(event, 1, 15)">Sova</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="viper1" id="viper1">
-                                <label for="viper1">Viper</label>
+                                <label for="viper1" class="cursor-pointer" onclick="setPlayerAgent(event, 1, 16)">Viper</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="yoru1" id="yoru1">
-                                <label for="yoru1">Yoru</label>
+                                <label for="yoru1" class="cursor-pointer" onclick="setPlayerAgent(event, 1, 17)">Yoru</label>
                             </div>
                         </div>
                     </div>
-                    <div class="inline-block h-24 w-24 relative">
-                        <div class="absolute top-0 left-0 w-24 h-24 z-index-10 cursor-pointer">
+                    <div class="inline-block h-32 w-24 relative">
+                        <div class="absolute top-0 left-0 w-24 h-24 z-10 cursor-pointer">
                             <img id="playerIcon2" class="h-24 aspect-square" src="https://via.placeholder.com/128"
                                 alt="Agent">
+                        </div>
+                        <div class="absolute top-24 left-0 w-24 h-8 z-10">
+                            <button
+                                class="mt-2 w-24 h-6 bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-300 hover:dark:bg-zinc-700 rounded text-sm"
+                                onclick="randomizeAgent(2)">Randomize</button>
                         </div>
                         <div id="agentsSelect2"
                             class="absolute top-0 left-0 bg-zinc-100 dark:bg-zinc-900 border-2 border-zinc-300 dark:border-zinc-700 p-2 w-48 -translate-x-1/4 z-20 hidden rounded">
@@ -186,116 +196,121 @@
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="astra2" id="astra2">
-                                <label for="astra2">Astra</label>
+                                <label for="astra2" class="cursor-pointer" onclick="setPlayerAgent(event, 2, 0)">Astra</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="breach2" id="breach2">
-                                <label for="breach2">Breach</label>
+                                <label for="breach2" class="cursor-pointer" onclick="setPlayerAgent(event, 2, 1)">Breach</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="brimstone2" id="brimstone2" checked disabled>
-                                <label for="brimstone2">Brimstone</label>
+                                <label for="brimstone2" class="cursor-pointer" onclick="setPlayerAgent(event, 2, 2)">Brimstone</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="chamber2" id="chamber2">
-                                <label for="chamber2">Chamber</label>
+                                <label for="chamber2" class="cursor-pointer" onclick="setPlayerAgent(event, 2, 3)">Chamber</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="cypher2" id="cypher2">
-                                <label for="cypher2">Cypher</label>
+                                <label for="cypher2" class="cursor-pointer" onclick="setPlayerAgent(event, 2, 4)">Cypher</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="jett2" id="jett2" checked disabled>
-                                <label for="jett2">Jett</label>
+                                <label for="jett2" class="cursor-pointer" onclick="setPlayerAgent(event, 2, 5)">Jett</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="kayo2" id="kayo2">
-                                <label for="kayo2">Kayo</label>
+                                <label for="kayo2" class="cursor-pointer" onclick="setPlayerAgent(event, 2, 6)">Kayo</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="killjoy2" id="killjoy2">
-                                <label for="killjoy2">Killjoy</label>
+                                <label for="killjoy2" class="cursor-pointer" onclick="setPlayerAgent(event, 2, 7)">Killjoy</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="neon2" id="neon2">
-                                <label for="neon2">Neon</label>
+                                <label for="neon2" class="cursor-pointer" onclick="setPlayerAgent(event, 2, 8)">Neon</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="omen2" id="omen2">
-                                <label for="omen2">Omen</label>
+                                <label for="omen2" class="cursor-pointer" onclick="setPlayerAgent(event, 2, 9)">Omen</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="phoenix2" id="phoenix2" checked disabled>
-                                <label for="phoenix2">Phoenix</label>
+                                <label for="phoenix2" class="cursor-pointer" onclick="setPlayerAgent(event, 2, 10)">Phoenix</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="raze2" id="raze2">
-                                <label for="raze2">Raze</label>
+                                <label for="raze2" class="cursor-pointer" onclick="setPlayerAgent(event, 2, 11)">Raze</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="reyna2" id="reyna2">
-                                <label for="reyna2">Reyna</label>
+                                <label for="reyna2" class="cursor-pointer" onclick="setPlayerAgent(event, 2, 12)">Reyna</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="sage2" id="sage2" checked disabled>
-                                <label for="sage2">Sage</label>
+                                <label for="sage2" class="cursor-pointer" onclick="setPlayerAgent(event, 2, 13)">Sage</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="skye2" id="skye2">
-                                <label for="skye2">Skye</label>
+                                <label for="skye2" class="cursor-pointer" onclick="setPlayerAgent(event, 2, 14)">Skye</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="sova2" id="sova2" checked disabled>
-                                <label for="sova2">Sova</label>
+                                <label for="sova2" class="cursor-pointer" onclick="setPlayerAgent(event, 2, 15)">Sova</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="viper2" id="viper2">
-                                <label for="viper2">Viper</label>
+                                <label for="viper2" class="cursor-pointer" onclick="setPlayerAgent(event, 2, 16)">Viper</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="yoru2" id="yoru2">
-                                <label for="yoru2">Yoru</label>
+                                <label for="yoru2" class="cursor-pointer" onclick="setPlayerAgent(event, 2, 17)">Yoru</label>
                             </div>
                         </div>
                     </div>
-                    <div class="inline-block h-24 w-24 relative">
-                        <div class="absolute top-0 left-0 w-24 h-24 z-index-10 cursor-pointer">
+                    <div class="inline-block h-32 w-24 relative">
+                        <div class="absolute top-0 left-0 w-24 h-24 z-10 cursor-pointer">
                             <img id="playerIcon3" class="h-24 aspect-square" src="https://via.placeholder.com/128"
                                 alt="Agent">
+                        </div>
+                        <div class="absolute top-24 left-0 w-24 h-8 z-10">
+                            <button
+                                class="mt-2 w-24 h-6 bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-300 hover:dark:bg-zinc-700 rounded text-sm"
+                                onclick="randomizeAgent(3)">Randomize</button>
                         </div>
                         <div id="agentsSelect3"
                             class="absolute top-0 left-0 bg-zinc-100 dark:bg-zinc-900 border-2 border-zinc-300 dark:border-zinc-700 p-2 w-48 -translate-x-1/4 z-20 hidden rounded">
@@ -303,116 +318,121 @@
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="astra3" id="astra3">
-                                <label for="astra3">Astra</label>
+                                <label for="astra3" class="cursor-pointer" onclick="setPlayerAgent(event, 3, 0)">Astra</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="breach3" id="breach3">
-                                <label for="breach3">Breach</label>
+                                <label for="breach3" class="cursor-pointer" onclick="setPlayerAgent(event, 3, 1)">Breach</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="brimstone3" id="brimstone3" checked disabled>
-                                <label for="brimstone3">Brimstone</label>
+                                <label for="brimstone3" class="cursor-pointer" onclick="setPlayerAgent(event, 3, 2)">Brimstone</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="chamber3" id="chamber3">
-                                <label for="chamber3">Chamber</label>
+                                <label for="chamber3" class="cursor-pointer" onclick="setPlayerAgent(event, 3, 3)">Chamber</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="cypher3" id="cypher3">
-                                <label for="cypher3">Cypher</label>
+                                <label for="cypher3" class="cursor-pointer" onclick="setPlayerAgent(event, 3, 4)">Cypher</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="jett3" id="jett3" checked disabled>
-                                <label for="jett3">Jett</label>
+                                <label for="jett3" class="cursor-pointer" onclick="setPlayerAgent(event, 3, 5)">Jett</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="kayo3" id="kayo3">
-                                <label for="kayo3">Kayo</label>
+                                <label for="kayo3" class="cursor-pointer" onclick="setPlayerAgent(event, 3, 6)">Kayo</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="killjoy3" id="killjoy3">
-                                <label for="killjoy3">Killjoy</label>
+                                <label for="killjoy3" class="cursor-pointer" onclick="setPlayerAgent(event, 3, 7)">Killjoy</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="neon3" id="neon3">
-                                <label for="neon3">Neon</label>
+                                <label for="neon3" class="cursor-pointer" onclick="setPlayerAgent(event, 3, 8)">Neon</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="omen3" id="omen3">
-                                <label for="omen3">Omen</label>
+                                <label for="omen3" class="cursor-pointer" onclick="setPlayerAgent(event, 3, 9)">Omen</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="phoenix3" id="phoenix3" checked disabled>
-                                <label for="phoenix3">Phoenix</label>
+                                <label for="phoenix3" class="cursor-pointer" onclick="setPlayerAgent(event, 3, 10)">Phoenix</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="raze3" id="raze3">
-                                <label for="raze3">Raze</label>
+                                <label for="raze3" class="cursor-pointer" onclick="setPlayerAgent(event, 3, 11)">Raze</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="reyna3" id="reyna3">
-                                <label for="reyna3">Reyna</label>
+                                <label for="reyna3" class="cursor-pointer" onclick="setPlayerAgent(event, 3, 12)">Reyna</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="sage3" id="sage3" checked disabled>
-                                <label for="sage3">Sage</label>
+                                <label for="sage3" class="cursor-pointer" onclick="setPlayerAgent(event, 3, 13)">Sage</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="skye3" id="skye3">
-                                <label for="skye3">Skye</label>
+                                <label for="skye3" class="cursor-pointer" onclick="setPlayerAgent(event, 3, 14)">Skye</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="sova3" id="sova3" checked disabled>
-                                <label for="sova3">Sova</label>
+                                <label for="sova3" class="cursor-pointer" onclick="setPlayerAgent(event, 3, 15)">Sova</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="viper3" id="viper3">
-                                <label for="viper3">Viper</label>
+                                <label for="viper3" class="cursor-pointer" onclick="setPlayerAgent(event, 3, 16)">Viper</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="yoru3" id="yoru3">
-                                <label for="yoru3">Yoru</label>
+                                <label for="yoru3" class="cursor-pointer" onclick="setPlayerAgent(event, 3, 17)">Yoru</label>
                             </div>
                         </div>
                     </div>
-                    <div class="inline-block h-24 w-24 relative">
-                        <div class="absolute top-0 left-0 w-24 h-24 z-index-10 cursor-pointer">
+                    <div class="inline-block h-32 w-24 relative">
+                        <div class="absolute top-0 left-0 w-24 h-24 z-10 cursor-pointer">
                             <img id="playerIcon4" class="h-24 aspect-square" src="https://via.placeholder.com/128"
                                 alt="Agent">
+                        </div>
+                        <div class="absolute top-24 left-0 w-24 h-8 z-10">
+                            <button
+                                class="mt-2 w-24 h-6 bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-300 hover:dark:bg-zinc-700 rounded text-sm"
+                                onclick="randomizeAgent(4)">Randomize</button>
                         </div>
                         <div id="agentsSelect4"
                             class="absolute top-0 left-0 bg-zinc-100 dark:bg-zinc-900 border-2 border-zinc-300 dark:border-zinc-700 p-2 w-48 -translate-x-1/4 z-20 hidden rounded">
@@ -420,116 +440,121 @@
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="astra4" id="astra4">
-                                <label for="astra4">Astra</label>
+                                <label for="astra4" class="cursor-pointer" onclick="setPlayerAgent(event, 4, 0)">Astra</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="breach4" id="breach4">
-                                <label for="breach4">Breach</label>
+                                <label for="breach4" class="cursor-pointer" onclick="setPlayerAgent(event, 4, 1)">Breach</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="brimstone4" id="brimstone4" checked disabled>
-                                <label for="brimstone4">Brimstone</label>
+                                <label for="brimstone4" class="cursor-pointer" onclick="setPlayerAgent(event, 4, 2)">Brimstone</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="chamber4" id="chamber4">
-                                <label for="chamber4">Chamber</label>
+                                <label for="chamber4" class="cursor-pointer" onclick="setPlayerAgent(event, 4, 3)">Chamber</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="cypher4" id="cypher4">
-                                <label for="cypher4">Cypher</label>
+                                <label for="cypher4" class="cursor-pointer" onclick="setPlayerAgent(event, 4, 4)">Cypher</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="jett4" id="jett4" checked disabled>
-                                <label for="jett4">Jett</label>
+                                <label for="jett4" class="cursor-pointer" onclick="setPlayerAgent(event, 4, 5)">Jett</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="kayo4" id="kayo4">
-                                <label for="kayo4">Kayo</label>
+                                <label for="kayo4" class="cursor-pointer" onclick="setPlayerAgent(event, 4, 6)">Kayo</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="killjoy4" id="killjoy4">
-                                <label for="killjoy4">Killjoy</label>
+                                <label for="killjoy4" class="cursor-pointer" onclick="setPlayerAgent(event, 4, 7)">Killjoy</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="neon4" id="neon4">
-                                <label for="neon4">Neon</label>
+                                <label for="neon4" class="cursor-pointer" onclick="setPlayerAgent(event, 4, 8)">Neon</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="omen4" id="omen4">
-                                <label for="omen4">Omen</label>
+                                <label for="omen4" class="cursor-pointer" onclick="setPlayerAgent(event, 4, 9)">Omen</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="phoenix4" id="phoenix4" checked disabled>
-                                <label for="phoenix4">Phoenix</label>
+                                <label for="phoenix4" class="cursor-pointer" onclick="setPlayerAgent(event, 4, 10)">Phoenix</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="raze4" id="raze4">
-                                <label for="raze4">Raze</label>
+                                <label for="raze4" class="cursor-pointer" onclick="setPlayerAgent(event, 4, 11)">Raze</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="reyna4" id="reyna4">
-                                <label for="reyna4">Reyna</label>
+                                <label for="reyna4" class="cursor-pointer" onclick="setPlayerAgent(event, 4, 12)">Reyna</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="sage4" id="sage4" checked disabled>
-                                <label for="sage4">Sage</label>
+                                <label for="sage4" class="cursor-pointer" onclick="setPlayerAgent(event, 4, 13)">Sage</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="skye4" id="skye4">
-                                <label for="skye4">Skye</label>
+                                <label for="skye4" class="cursor-pointer" onclick="setPlayerAgent(event, 4, 14)">Skye</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="sova4" id="sova4" checked disabled>
-                                <label for="sova4">Sova</label>
+                                <label for="sova4" class="cursor-pointer" onclick="setPlayerAgent(event, 4, 15)">Sova</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="viper4" id="viper4">
-                                <label for="viper4">Viper</label>
+                                <label for="viper4" class="cursor-pointer" onclick="setPlayerAgent(event, 4, 16)">Viper</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="yoru4" id="yoru4">
-                                <label for="yoru4">Yoru</label>
+                                <label for="yoru4" class="cursor-pointer" onclick="setPlayerAgent(event, 4, 17)">Yoru</label>
                             </div>
                         </div>
                     </div>
-                    <div class="inline-block h-24 w-24 relative">
-                        <div class="absolute top-0 left-0 w-24 h-24 z-index-10 cursor-pointer">
+                    <div class="inline-block h-32 w-24 relative">
+                        <div class="absolute top-0 left-0 w-24 h-24 z-10 cursor-pointer">
                             <img id="playerIcon5" class="h-24 aspect-square" src="https://via.placeholder.com/128"
                                 alt="Agent">
+                        </div>
+                        <div class="absolute top-24 left-0 w-24 h-8 z-10">
+                            <button
+                                class="mt-2 w-24 h-6 bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-300 hover:dark:bg-zinc-700 rounded text-sm"
+                                onclick="randomizeAgent(5)">Randomize</button>
                         </div>
                         <div id="agentsSelect5"
                             class="absolute top-0 left-0 bg-zinc-100 dark:bg-zinc-900 border-2 border-zinc-300 dark:border-zinc-700 p-2 w-48 -translate-x-1/4 z-20 hidden rounded">
@@ -537,116 +562,116 @@
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="astra5" id="astra5">
-                                <label for="astra5">Astra</label>
+                                <label for="astra5" class="cursor-pointer" onclick="setPlayerAgent(event, 5, 0)">Astra</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="breach5" id="breach5">
-                                <label for="breach5">Breach</label>
+                                <label for="breach5" class="cursor-pointer" onclick="setPlayerAgent(event, 5, 1)">Breach</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="brimstone5" id="brimstone5" checked disabled>
-                                <label for="brimstone5">Brimstone</label>
+                                <label for="brimstone5" class="cursor-pointer" onclick="setPlayerAgent(event, 5, 2)">Brimstone</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="chamber5" id="chamber5">
-                                <label for="chamber5">Chamber</label>
+                                <label for="chamber5" class="cursor-pointer" onclick="setPlayerAgent(event, 5, 3)">Chamber</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="cypher5" id="cypher5">
-                                <label for="cypher5">Cypher</label>
+                                <label for="cypher5" class="cursor-pointer" onclick="setPlayerAgent(event, 5, 4)">Cypher</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="jett5" id="jett5" checked disabled>
-                                <label for="jett5">Jett</label>
+                                <label for="jett5" class="cursor-pointer" onclick="setPlayerAgent(event, 5, 5)">Jett</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="kayo5" id="kayo5">
-                                <label for="kayo5">Kayo</label>
+                                <label for="kayo5" class="cursor-pointer" onclick="setPlayerAgent(event, 5, 6)">Kayo</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="killjoy5" id="killjoy5">
-                                <label for="killjoy5">Killjoy</label>
+                                <label for="killjoy5" class="cursor-pointer" onclick="setPlayerAgent(event, 5, 7)">Killjoy</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="neon5" id="neon5">
-                                <label for="neon5">Neon</label>
+                                <label for="neon5" class="cursor-pointer" onclick="setPlayerAgent(event, 5, 8)">Neon</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="omen5" id="omen5">
-                                <label for="omen5">Omen</label>
+                                <label for="omen5" class="cursor-pointer" onclick="setPlayerAgent(event, 5, 9)">Omen</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="phoenix5" id="phoenix5" checked disabled>
-                                <label for="phoenix5">Phoenix</label>
+                                <label for="phoenix5" class="cursor-pointer" onclick="setPlayerAgent(event, 5, 10)">Phoenix</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="raze5" id="raze5">
-                                <label for="raze5">Raze</label>
+                                <label for="raze5" class="cursor-pointer" onclick="setPlayerAgent(event, 5, 11)">Raze</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="reyna5" id="reyna5">
-                                <label for="reyna5">Reyna</label>
+                                <label for="reyna5" class="cursor-pointer" onclick="setPlayerAgent(event, 5, 12)">Reyna</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="sage5" id="sage5" checked disabled>
-                                <label for="sage5">Sage</label>
+                                <label for="sage5" class="cursor-pointer" onclick="setPlayerAgent(event, 5, 13)">Sage</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="skye5" id="skye5">
-                                <label for="skye5">Skye</label>
+                                <label for="skye5" class="cursor-pointer" onclick="setPlayerAgent(event, 5, 14)">Skye</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="sova5" id="sova5" checked disabled>
-                                <label for="sova5">Sova</label>
+                                <label for="sova5" class="cursor-pointer" onclick="setPlayerAgent(event, 5, 15)">Sova</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="viper5" id="viper5">
-                                <label for="viper5">Viper</label>
+                                <label for="viper5" class="cursor-pointer" onclick="setPlayerAgent(event, 5, 16)">Viper</label>
                             </div>
                             <div>
                                 <input
                                     class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                                     type="checkbox" checked name="yoru5" id="yoru5">
-                                <label for="yoru5">Yoru</label>
+                                <label for="yoru5" class="cursor-pointer" onclick="setPlayerAgent(event, 5, 17)">Yoru</label>
                             </div>
                         </div>
                     </div>
                 </div>
                 <button id="agentRandomizeBtn"
                     class="mt-4 py-2 px-6 bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-300 hover:dark:bg-zinc-700 rounded">
-                    Randomize
+                    Randomize All
                 </button>
             </div>
         </div>

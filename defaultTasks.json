@@ -102,7 +102,7 @@
         }
     },
     {
-        "desc": "Everybody Dance: Relies on all players having spotify, start listening to Everybody Dance by Chic at the start of the round once they say \"Everybody Dance\" you must starting dancing in game",
+        "desc": "Everybody Dance: Relies on all players having spotify, start listening to Everybody Dance by Chic at the start of the round once they say \"Everybody Dance\" you must start dancing in game",
         "restrictions": {
             "team": "attack"
         }

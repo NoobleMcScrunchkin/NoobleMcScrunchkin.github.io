@@ -129,6 +129,29 @@ randomizeAgents = () => {
     updatePopup();
 }
 
+randomizeAgent = (player) => {
+    let agentI = Math.floor(Math.random() * agents.length);
+    let agentsTried = [];
+    while (takenAgents.includes(agents[agentI]) || document.querySelector(`#${agents[agentI]}${player}`).checked == false) {
+        agentI = Math.floor(Math.random() * agents.length);
+        agentsTried.indexOf(agentI) === -1 ? agentsTried.push(agentI) : null;
+        if (agentsTried.length == agents.length) return;
+    }
+    document.querySelector(`#playerIcon${player}`).src = `img/agents/${agents[agentI]}.webp`;
+    document.querySelector(`#playerIcon${player}`).alt = agents[agentI];
+    takenAgents[player - 1] = agents[agentI];
+}
+
+setPlayerAgent = (e, player, agentI) => {
+    e.preventDefault();
+    if (takenAgents.includes(agents[agentI])) return;
+    document.querySelector(`#${agents[agentI]}${player}`).checked = true
+    
+    document.querySelector(`#playerIcon${player}`).src = `img/agents/${agents[agentI]}.webp`;
+    document.querySelector(`#playerIcon${player}`).alt = agents[agentI];
+    takenAgents[player - 1] = agents[agentI];
+}
+
 // MAPS
 const maps = [
     'ascent',
@@ -147,13 +170,13 @@ getJSON = (url, callback) => {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
     xhr.responseType = 'json';
-    xhr.onload = function() {
-      var status = xhr.status;
-      if (status === 200) {
-        callback(null, xhr.response);
-      } else {
-        callback(status, xhr.response);
-      }
+    xhr.onload = function () {
+        var status = xhr.status;
+        if (status === 200) {
+            callback(null, xhr.response);
+        } else {
+            callback(status, xhr.response);
+        }
     };
     xhr.send();
 };
@@ -232,10 +255,9 @@ randomizeTask = () => {
 }
 
 // PRELOAD
-function preloadImage(url)
-{
-    var img=new Image();
-    img.src=url;
+function preloadImage(url) {
+    var img = new Image();
+    img.src = url;
 }
 
 maps.forEach(map => {
