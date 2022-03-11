@@ -150,6 +150,7 @@ setPlayerAgent = (e, player, agentI) => {
     document.querySelector(`#playerIcon${player}`).src = `img/agents/${agents[agentI]}.webp`;
     document.querySelector(`#playerIcon${player}`).alt = agents[agentI];
     takenAgents[player - 1] = agents[agentI];
+    document.getElementById(`agentsSelect${player}`).classList.add('hidden');
 }
 
 // MAPS
