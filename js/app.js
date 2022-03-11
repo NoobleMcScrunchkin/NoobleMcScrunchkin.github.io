@@ -146,7 +146,7 @@ setPlayerAgent = (e, player, agentI) => {
     e.preventDefault();
     if (takenAgents.includes(agents[agentI])) return;
     document.querySelector(`#${agents[agentI]}${player}`).checked = true
-    
+
     document.querySelector(`#playerIcon${player}`).src = `img/agents/${agents[agentI]}.webp`;
     document.querySelector(`#playerIcon${player}`).alt = agents[agentI];
     takenAgents[player - 1] = agents[agentI];
@@ -165,7 +165,152 @@ const maps = [
 ]
 
 // TASKS.
-let defaultTasks = [];
+let defaultTasks = [
+    {
+        "desc": "Crab Walk: You must be crouching at all times and must only use left and right to move"
+    },
+    {
+        "desc": "Glass Cannon: You must buy the most expensive weapon you can afford without any shields"
+    },
+    {
+        "desc": "Simlish: All comms must be done in Simlish, or just made up language works too"
+    },
+    {
+        "desc": "Quick Swap: You must have your knife out until you spot an enemy"
+    },
+    {
+        "desc": "Spawn Tap: You must reach enemy spawn before being allowed to kill enemies"
+    },
+    {
+        "desc": "Utility Overload: You must use all your utilties before next round or you dont get any next round"
+    },
+    {
+        "desc": "Pick Two: Reroll the strat picker twice the first strat is for the whole round the 2nd strat is for post plant"
+    },
+    {
+        "desc": "Formation: All players must follow the spike carrier in a line"
+    },
+    {
+        "desc": "Trickshot: Must do a 360 before shooting any enemy"
+    },
+    {
+        "desc": "Kill The President: Decide someone on the opposite team that person must die before killing anyone else"
+    },
+    {
+        "desc": "Protect The President: Pick a player, give them the spike and hustle around them to plant"
+    },
+    {
+        "desc": "Blinds here: Only players who can flash are allowed to use abilities and are only allowed to flash"
+    },
+    {
+        "desc": "The One Gun: Pick a player, they buy a gun and that gun is the only gun allowed to shoot"
+    },
+    {
+        "desc": "CSGO: No abilities or ults"
+    },
+    {
+        "desc": "Gunswap: When you kill an enemy you must go get their weapon before killing anyone else"
+    },
+    {
+        "desc": "Silent But Deadly: Set game master volume to 0"
+    },
+    {
+        "desc": "Bend those knees: No standing up you must crouch"
+    },
+    {
+        "desc": "Broken W Key: You must always be pressing W and no shift walking"
+    },
+    {
+        "desc": "Shoutcasters: You must narrate what you are doing as if a sportcaster"
+    },
+    {
+        "desc": "Fakeout: Use all abilities at one site then rotate to the other"
+    },
+    {
+        "desc": "Evasive Maneuvers: You must jump around every corner you peek"
+    },
+    {
+        "desc": "Sound Effects: You must make the noises for everything you do, pretend you are a kid"
+    },
+    {
+        "desc": "Dog Tags: After killing you must go to the corpse of the enemy and spray it to be able to shoot"
+    },
+    {
+        "desc": "Voices from Beyond: Only dead players may give comms, and only in a ghostly manner~"
+    },
+    {
+        "desc": "Muscle Memory who dat?: Swap the keybinds for jump and shoot"
+    },
+    {
+        "desc": "Shouty keys: Every key press you make must be said out loud"
+    },
+    {
+        "desc": "Cheerleaders: After every kill all players must stop and cheer for 5 seconds"
+    },
+    {
+        "desc": "One Clip: After using a clip you must drop the gun you can pick up other peoples guns"
+    },
+    {
+        "desc": "Yes sir, Captain: Pick a player you must ask permission and recieve permission to swap weapons, reload or use abilties"
+    },
+    {
+        "desc": "Poor man's Valorant: You can't spend more than the poorest player"
+    },
+    {
+        "desc": "Inarticulate: You may only use the words \"Forwards\" \"Back\" \"Left\" and \"Right\""
+    },
+    {
+        "desc": "Frenzy Mode: Frenzy only no abilities"
+    },
+    {
+        "desc": "Flank Patrol: At least one person must reach the enemies spawn before planting",
+        "restrictions": {
+            "team": "attack"
+        }
+    },
+    {
+        "desc": "Everybody Dance: Relies on all players having spotify, start listening to Everybody Dance by Chic at the start of the round once they say \"Everybody Dance\" you must start dancing in game",
+        "restrictions": {
+            "team": "attack"
+        }
+    },
+    {
+        "desc": "Meat Shield: Once the spike is planted all players must stand on it ",
+        "restrictions": {
+            "team": "attack"
+        }
+    },
+    {
+        "desc": "No Time To Hide: Once the round starts you can't move until the spike has been planted",
+        "restrictions": {
+            "team": "defence"
+        }
+    },
+    {
+        "desc": "Time to retake: Wait in spawn until the spike is planted",
+        "restrictions": {
+            "team": "defence"
+        }
+    },
+    {
+        "desc": "One at a time: Only one can leave spawn at a time",
+        "restrictions": {
+            "team": "defence"
+        }
+    },
+    {
+        "desc": "Close and Personal: Shorty or Bucky only and must hold close angles in the bomb plant areas",
+        "restrictions": {
+            "team": "defence"
+        }
+    },
+    {
+        "desc": "The Power of Friendship: Choose a site, all buy odins and go to that site, stand in a line and no moving unless the team goes to the other site",
+        "restrictions": {
+            "team": "defence"
+        }
+    }
+];
 
 getJSON = (url, callback) => {
     var xhr = new XMLHttpRequest();
@@ -227,15 +372,26 @@ randomizeTask = () => {
         task = tasks[taskI];
 
         if (task.restrictions == undefined) {
+            if (!document.querySelector('#genericTasksInp').checked) {
+                valid = false;
+                continue;
+            }
             break;
         }
 
-        if (task.restrictions.map != undefined && !task.restrictions.map.includes(maps[mapSiema.currentSlide])) {
-            valid = false;
-            continue;
+        if (task.restrictions.map != undefined) {
+            if (!task.restrictions.map.includes(maps[mapSiema.currentSlide]) || !document.querySelector('#mapTasksInp').checked) {
+                valid = false;
+                continue;
+            }
         }
 
         if (task.restrictions.agent != undefined) {
+            if (!document.querySelector('#agentTasksInp').checked) {
+                valid = false;
+                continue;
+            }
+
             let commonAgents = task.restrictions.agent.filter(function (e) {
                 return takenAgents.indexOf(e) > -1;
             });
@@ -245,9 +401,11 @@ randomizeTask = () => {
             }
         }
 
-        if (task.restrictions.team != undefined && team != task.restrictions.team) {
-            valid = false;
-            continue;
+        if (task.restrictions.team != undefined) {
+            if (team != task.restrictions.team || !document.querySelector('#teamTasksInp').checked) {
+                valid = false;
+                continue;
+            }
         }
     }
 
