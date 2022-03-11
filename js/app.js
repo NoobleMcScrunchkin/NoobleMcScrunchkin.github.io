@@ -164,8 +164,8 @@ getJSON('defaultTasks.json', (error, res) => {
         return;
     }
 
-    console.log(res);
-})
+    defaultTasks = res;
+});
 
 randomizeTask = () => {
     if (team == undefined) return;
@@ -181,6 +181,8 @@ randomizeTask = () => {
     } else {
         tasks = defaultTasks;
     }
+
+    if (tasks.length == 0) return;
 
     let attemptedTasks = [];
     valid = false;
