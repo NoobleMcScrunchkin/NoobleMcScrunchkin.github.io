@@ -1580,6 +1580,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-left: 2rem;
 }
 
+.block {
+  display: block;
+}
+
 .inline-block {
   display: inline-block;
 }
@@ -1630,6 +1634,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-28 {
   height: 7rem;
+}
+
+.h-16 {
+  height: 4rem;
 }
 
 .min-h-screen {
@@ -2041,6 +2049,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 @media (prefers-color-scheme: dark) {
+  .dark\:block {
+    display: block;
+  }
+
+  .dark\:hidden {
+    display: none;
+  }
+
   .dark\:border-zinc-700 {
     --tw-border-opacity: 1;
     border-color: rgb(63 63 70 / var(--tw-border-opacity));
