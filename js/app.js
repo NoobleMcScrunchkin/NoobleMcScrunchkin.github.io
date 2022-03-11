@@ -141,40 +141,31 @@ const maps = [
 ]
 
 // TASKS.
-const defaultTasks = [
-    {
-        desc: 'This is a task that the players have to do. #1',
-        // restrictions: {
-        //     map: ['ascent', 'split'],
-        //     agent: ['reyna', 'sage'],
-        //     team: 'attack',
-        // },
-    },
-    {
-        desc: 'This is a task that the players have to do. #2',
-        // restrictions: {
-        //     map: ['ascent', 'split'],
-        //     agent: ['reyna', 'sage'],
-        //     team: 'attack',
-        // },
-    },
-    {
-        desc: 'This is a task that the players have to do. #3',
-        // restrictions: {
-        //     map: ['ascent', 'split'],
-        //     agent: ['reyna', 'sage'],
-        //     team: 'attack',
-        // },
-    },
-    {
-        desc: 'This is a task that the players have to do. #4',
-        // restrictions: {
-        //     map: ['ascent', 'split'],
-        //     agent: ['reyna', 'sage'],
-        //     team: 'attack',
-        // },
-    },
-];
+let defaultTasks = [];
+
+getJSON = (url, callback) => {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.responseType = 'json';
+    xhr.onload = function() {
+      var status = xhr.status;
+      if (status === 200) {
+        callback(null, xhr.response);
+      } else {
+        callback(status, xhr.response);
+      }
+    };
+    xhr.send();
+};
+
+getJSON('defaultTasks.json', (error, res) => {
+    if (error) {
+        console.error(error);
+        return;
+    }
+
+    console.log(res);
+})
 
 randomizeTask = () => {
     if (team == undefined) return;
