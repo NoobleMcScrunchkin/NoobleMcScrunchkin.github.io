@@ -785,8 +785,33 @@
         let defaultTasksAllowed = true;
         let customTasks = [];
 
-        const customTasksInp = document.querySelector('#customTasksInp');
+        const genericTasksInp = document.querySelector('#genericTasksInp');
+        const agentTasksInp = document.querySelector('#agentTasksInp');
+        const mapTasksInp = document.querySelector('#mapTasksInp');
+        const teamTasksInp = document.querySelector('#teamTasksInp');
+        genericTasksInp.onclick = () => {
+            if (!agentTasksInp.checked && !mapTasksInp.checked && !teamTasksInp.checked) {
+                genericTasksInp.checked = true;
+            }
+        }
+        agentTasksInp.onclick = () => {
+            if (!agentTasksInp.checked && !mapTasksInp.checked && !teamTasksInp.checked) {
+                genericTasksInp.checked = true;
+            }
+        }
+        mapTasksInp.onclick = () => {
+            if (!agentTasksInp.checked && !mapTasksInp.checked && !teamTasksInp.checked) {
+                genericTasksInp.checked = true;
+            }
+        }
+        teamTasksInp.onclick = () => {
+            if (!agentTasksInp.checked && !mapTasksInp.checked && !teamTasksInp.checked) {
+                genericTasksInp.checked = true;
+            }
+        }
+
         const defaultTasksInp = document.querySelector('#defaultTasksInp');
+        const customTasksInp = document.querySelector('#customTasksInp');
         defaultTasksInp.onchange = () => {
             defaultTasksAllowed = defaultTasksInp.checked;
             if (customTasks.length == 0 || customTasksAllowed == false) {
