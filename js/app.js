@@ -234,3 +234,18 @@ randomizeTask = () => {
     taskArea.textContent = task.desc;
     updatePopup();
 }
+
+// PRELOAD
+function preloadImage(url)
+{
+    var img=new Image();
+    img.src=url;
+}
+
+maps.forEach(map => {
+    preloadImage(`img/maps/${map}.webp`)
+});
+
+agents.forEach(agent => {
+    preloadImage(`img/agents/${agent}.webp`)
+});
