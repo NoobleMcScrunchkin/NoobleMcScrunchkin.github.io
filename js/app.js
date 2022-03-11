@@ -2,6 +2,9 @@
 let popup;
 
 openPopup = () => {
+    if (popup) {
+        popup.close();
+    }
     popup = window.open("", "", "height=250,width=600,status=no,toolbar=no,menubar=no,location=no");
     popup.document.write(`
         <!DOCTYPE html>
