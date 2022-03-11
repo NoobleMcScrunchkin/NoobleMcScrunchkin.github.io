@@ -16,7 +16,7 @@ openPopup = () => {
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-            <link rel="stylesheet" href="css/styles.css?v=1.4">
+            <link rel="stylesheet" href="css/styles.css?v=1.5">
             <title>Valorant - Strat Roulette</title>
         </head>
         <body class="bg-green-500 min-h-screen text-center p-4 text-white select-none">
@@ -140,6 +140,7 @@ randomizeAgent = (player) => {
     document.querySelector(`#playerIcon${player}`).src = `img/agents/${agents[agentI]}.webp`;
     document.querySelector(`#playerIcon${player}`).alt = agents[agentI];
     takenAgents[player - 1] = agents[agentI];
+    updatePopup();
 }
 
 setPlayerAgent = (e, player, agentI) => {
@@ -151,6 +152,7 @@ setPlayerAgent = (e, player, agentI) => {
     document.querySelector(`#playerIcon${player}`).alt = agents[agentI];
     takenAgents[player - 1] = agents[agentI];
     document.getElementById(`agentsSelect${player}`).classList.add('hidden');
+    updatePopup();
 }
 
 // MAPS
