@@ -19,7 +19,7 @@ openPopup = () => {
             <link rel="stylesheet" href="css/styles.css">
             <title>Valorant - Strat Roulette</title>
         </head>
-        <body class="bg-green-500 min-h-screen text-center p-4 text-white">
+        <body class="bg-green-500 min-h-screen text-center p-4 text-white select-none">
             <div class="w-full mx-auto">
                 <div class="justify-between">
                     <img id="playerIcon1" class="h-24 aspect-square inline" src="https://via.placeholder.com/128" alt="Agent">
