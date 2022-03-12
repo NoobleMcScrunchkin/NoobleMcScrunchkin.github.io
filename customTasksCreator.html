@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css?v=1.7">
+    <script src="js/index.min.js"></script>
+    <title>Valorant - Strat Roulette</title>
+</head>
+
+<body class="min-h-screen bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 p-4 select-none">
+    <div
+        class="flex flex-col container mx-auto min-h-full bg-zinc-200 dark:bg-zinc-800 border-4 border-zinc-300 dark:border-zinc-700">
+        <div class="w-full font-valorant text-6xl pt-10 pb-6 text-center select-none">
+            VALORANT<br>
+            STRAT ROULETTE<br>
+            CUSTOM TASKS CREATOR
+        </div>
+        <div class="w-full flex flex-row border-t-4 border-zinc-300 dark:border-zinc-700">
+            <div id="settingsContainer" class="w-1/2 border-r-4 border-zinc-300 dark:border-zinc-700 p-4">
+                <div class="text-2xl">
+                    Description
+                </div>
+                <div class="mt-2">
+                    <textarea
+                        class="w-full h-16 rounded bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 border-2 border-zinc-300 dark:border-zinc-700 p-1"
+                        type="text" id="desc" name="desc"></textarea>
+                </div>
+                <div class="mt-4 text-2xl">
+                    Restrictions
+                </div>
+                <div class="mt-2 text-xl">
+                    Team
+                </div>
+                <div class="mt-2">
+                    <input
+                        class="align-middle form-check-input appearance-none h-4 w-4 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                        type="checkbox" name="attack" id="attack">
+                    <label class="mr-2 form-check-label align-middle" for="attack">Attack</label>
+                    <input
+                        class="align-middle form-check-input appearance-none h-4 w-4 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                        type="checkbox" name="defence" id="defence">
+                    <label class="form-check-label align-middle" for="defence">Defence</label>
+                </div>
+                <div class="mt-2 text-xl">
+                    Maps
+                </div>
+                <div class="mt-2">
+                    <div>
+                        <input
+                            class="align-middle form-check-input appearance-none h-4 w-4 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                            type="checkbox" name="ascent" id="ascent">
+                        <label class="mr-2 form-check-label align-middle" for="ascent">Ascent</label>
+                    </div>
+                    <div>
+                        <input
+                            class="align-middle form-check-input appearance-none h-4 w-4 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                            type="checkbox" name="bind" id="bind">
+                        <label class="mr-2 form-check-label align-middle" for="bind">Bind</label>
+                    </div>
+                    <div>
+                        <input
+                            class="align-middle form-check-input appearance-none h-4 w-4 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                            type="checkbox" name="breeze" id="breeze">
+                        <label class="mr-2 form-check-label align-middle" for="breeze">Breeze</label>
+                    </div>
+                    <div>
+                        <input
+                            class="align-middle form-check-input appearance-none h-4 w-4 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                            type="checkbox" name="fracture" id="fracture">
+                        <label class="mr-2 form-check-label align-middle" for="fracture">Fracture</label>
+                    </div>
+                    <div>
+                        <input
+                            class="align-middle form-check-input appearance-none h-4 w-4 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                            type="checkbox" name="haven" id="haven">
+                        <label class="mr-2 form-check-label align-middle" for="haven">Haven</label>
+                    </div>
+                    <div>
+                        <input
+                            class="align-middle form-check-input appearance-none h-4 w-4 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                            type="checkbox" name="icebox" id="icebox">
+                        <label class="mr-2 form-check-label align-middle" for="icebox">Icebox</label>
+                    </div>
+                    <div>
+                        <input
+                            class="align-middle form-check-input appearance-none h-4 w-4 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                            type="checkbox" name="split" id="split">
+                        <label class="form-check-label align-middle" for="split">Split</label>
+                    </div>
+                </div>
+                <div class="mt-2 text-xl">
+                    Agents
+                </div>
+                <div class="mt-2">
+                    <div>
+                        <input
+                            class="align-middle form-check-input appearance-none h-4 w-4 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                            type="checkbox" name="astra" id="astra">
+                        <label for="astra" class="form-check-label align-middle">Astra</label>
+                    </div>
+                    <div>
+                        <input
+                            class="align-middle form-check-input appearance-none h-4 w-4 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                            type="checkbox" name="breach" id="breach">
+                        <label for="breach" class="form-check-label align-middle">Breach</label>
+                    </div>
+                    <div>
+                        <input
+                            class="align-middle form-check-input appearance-none h-4 w-4 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                            type="checkbox" name="brimstone" id="brimstone">
+                        <label for="brimstone" class="form-check-label align-middle">Brimstone</label>
+                    </div>
+                    <div>
+                        <input
+                            class="align-middle form-check-input appearance-none h-4 w-4 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                            type="checkbox" name="chamber" id="chamber">
+                        <label for="chamber" class="form-check-label align-middle">Chamber</label>
+                    </div>
+                    <div>
+                        <input
+                            class="align-middle form-check-input appearance-none h-4 w-4 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                            type="checkbox" name="cypher" id="cypher">
+                        <label for="cypher" class="form-check-label align-middle">Cypher</label>
+                    </div>
+                    <div>
+                        <input
+                            class="align-middle form-check-input appearance-none h-4 w-4 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                            type="checkbox" name="jett" id="jett">
+                        <label for="jett" class="form-check-label align-middle">Jett</label>
+                    </div>
+                    <div>
+                        <input
+                            class="align-middle form-check-input appearance-none h-4 w-4 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                            type="checkbox" name="kayo" id="kayo">
+                        <label for="kayo" class="form-check-label align-middle">Kayo</label>
+                    </div>
+                    <div>
+                        <input
+                            class="align-middle form-check-input appearance-none h-4 w-4 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                            type="checkbox" name="killjoy" id="killjoy">
+                        <label for="killjoy" class="form-check-label align-middle">Killjoy</label>
+                    </div>
+                    <div>
+                        <input
+                            class="align-middle form-check-input appearance-none h-4 w-4 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                            type="checkbox" name="neon" id="neon">
+                        <label for="neon" class="form-check-label align-middle">Neon</label>
+                    </div>
+                    <div>
+                        <input
+                            class="align-middle form-check-input appearance-none h-4 w-4 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                            type="checkbox" name="omen" id="omen">
+                        <label for="omen" class="form-check-label align-middle">Omen</label>
+                    </div>
+                    <div>
+                        <input
+                            class="align-middle form-check-input appearance-none h-4 w-4 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                            type="checkbox" name="phoenix" id="phoenix">
+                        <label for="phoenix" class="form-check-label align-middle">Phoenix</label>
+                    </div>
+                    <div>
+                        <input
+                            class="align-middle form-check-input appearance-none h-4 w-4 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                            type="checkbox" name="raze" id="raze">
+                        <label for="raze" class="form-check-label align-middle">Raze</label>
+                    </div>
+                    <div>
+                        <input
+                            class="align-middle form-check-input appearance-none h-4 w-4 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                            type="checkbox" name="reyna" id="reyna">
+                        <label for="reyna" class="form-check-label align-middle">Reyna</label>
+                    </div>
+                    <div>
+                        <input
+                            class="align-middle form-check-input appearance-none h-4 w-4 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                            type="checkbox" name="sage" id="sage">
+                        <label for="sage" class="form-check-label align-middle">Sage</label>
+                    </div>
+                    <div>
+                        <input
+                            class="align-middle form-check-input appearance-none h-4 w-4 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                            type="checkbox" name="skye" id="skye">
+                        <label for="skye" class="form-check-label align-middle">Skye</label>
+                    </div>
+                    <div>
+                        <input
+                            class="align-middle form-check-input appearance-none h-4 w-4 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                            type="checkbox" name="sova" id="sova">
+                        <label for="sova" class="form-check-label align-middle">Sova</label>
+                    </div>
+                    <div>
+                        <input
+                            class="align-middle form-check-input appearance-none h-4 w-4 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                            type="checkbox" name="viper" id="viper">
+                        <label for="viper" class="form-check-label align-middle">Viper</label>
+                    </div>
+                    <div>
+                        <input
+                            class="align-middle form-check-input appearance-none h-4 w-4 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-zinc-100 dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
+                            type="checkbox" name="yoru" id="yoru">
+                        <label for="yoru" class="form-check-label align-middle">Yoru</label>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <button
+                        class="py-2 px-6 bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-300 hover:dark:bg-zinc-700 rounded"
+                        onclick="addTask()">addTask</button>
+                </div>
+            </div>
+            <div id="previewContainer"
+                class="w-1/2 border-l-4 border-zinc-300 dark:border-zinc-700 p-4 select-text overflow-auto text-left">
+                <button
+                    class="py-2 w-full bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-300 hover:dark:bg-zinc-700 rounded"
+                    onclick="save()">Save</button>
+                <pre class="mt-2" id="preview">PREVIEW HERE</pre>
+            </div>
+        </div>
+    </div>
+    <div class="w-full h-16 mt-4">
+        <div class="w-16 h-16 mx-auto">
+            <a href="https://github.com/NoobleMcScrunchkin/nooblemcscrunchkin.github.io">
+                <img class="w-16 h-16 aspect-square hidden dark:block" src="img/github/GitHub-Mark-Light-120px-plus.png"
+                    alt="GitHub">
+                <img class="w-16 h-16 aspect-square block dark:hidden" src="img/github/GitHub-Mark-120px-plus.png"
+                    alt="GitHub">
+            </a>
+        </div>
+    </div>
+    <script>
+        let tasks = [];
+
+        const agents = [
+            'astra',
+            'breach',
+            'brimstone',
+            'chamber',
+            'cypher',
+            'jett',
+            'kayo',
+            'killjoy',
+            'neon',
+            'omen',
+            'phoenix',
+            'raze',
+            'reyna',
+            'sage',
+            'skye',
+            'sova',
+            'viper',
+            'yoru',
+        ];
+
+        const maps = [
+            'ascent',
+            'bind',
+            'breeze',
+            'fracture',
+            'haven',
+            'icebox',
+            'split',
+        ]
+
+        const attackInp = document.querySelector('#attack');
+        const defenceInp = document.querySelector('#defence');
+        attackInp.onclick = () => {
+            if (attackInp.checked) {
+                defenceInp.checked = false;
+            }
+        }
+        defenceInp.onclick = () => {
+            if (defenceInp.checked) {
+                attackInp.checked = false;
+            }
+        }
+
+        addTask = () => {
+            if (document.querySelector(`#desc`).value.trim() == '') return;
+            let teamRestriction = document.querySelector('#attack').checked ? 'attack' : undefined;
+            teamRestriction = document.querySelector('#attack').checked ? 'defence' : teamRestriction;
+
+            let mapRestrictions = [];
+            maps.forEach(map => {
+                document.querySelector(`#${map}`).checked ? mapRestrictions.push(map) : null;
+            });
+
+            let agentRestrictions = [];
+            agents.forEach(agent => {
+                document.querySelector(`#${agent}`).checked ? agentRestrictions.push(agent) : null;
+            });
+
+            let restrictions;
+            if (agentRestrictions.length != 0 || mapRestrictions.length != 0 || teamRestriction) {
+                restrictions = {
+                    map: mapRestrictions.length != 0 ? mapRestrictions : undefined,
+                    agent: agentRestrictions.length != 0 ? agentRestrictions : undefined,
+                    team: teamRestriction
+                }
+            }
+
+            tasks.push({
+                desc: document.querySelector('#desc').value.trim(),
+                restrictions
+            });
+
+            document.querySelector('#preview').textContent = JSON.stringify(tasks, null, 4);
+        }
+
+        download = (filename, text) => {
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            element.setAttribute('download', filename);
+
+            element.style.display = 'none';
+            document.body.appendChild(element);
+
+            element.click();
+
+            document.body.removeChild(element);
+        }
+
+        save = () => {
+            download('customTasks.json', document.querySelector('#preview').textContent)
+        }
+
+        document.querySelector('#previewContainer').style.height = `${document.querySelector('#settingsContainer').clientHeight}px`;
+    </script>
+</body>
+
+</html>

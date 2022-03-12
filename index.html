@@ -8,10 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css?v=1.6">
+    <link rel="stylesheet" href="css/styles.css?v=1.7">
     <script src="js/siema.min.js"></script>
     <script src="js/index.min.js"></script>
-    <script src="js/app.js?v=1.6"></script>
+    <script src="js/app.js?v=1.7"></script>
     <title>Valorant - Strat Roulette</title>
 </head>
 
@@ -62,6 +62,11 @@
                         class="form-check-input appearance-none h-5 w-5 border border-zinc-300 dark:border-zinc-700 rounded-sm bg-white dark:bg-zinc-900 checked:bg-blue-400 dark:checked:bg-blue-600 checked:border-blue-400 dark:checked:border-blue-600 focus:outline-none transition duration-200 bg-no-repeat bg-center cursor-pointer"
                         type="checkbox" name="customTasksInp" id="customTasksInp" disabled>
                     <label class="form-check-label" for="customTasksInp">Custom Tasks</label>
+                </div>
+                <div class="mt-4">
+                    <a
+                        class="py-2 px-6 bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-300 hover:dark:bg-zinc-700 rounded"
+                        href="customTasksCreator">Custom Tasks Creator</a>
                 </div>
                 <div>
                     <input id="tasksInput" accept=".json" type="file" name="tasksInput" hidden>
@@ -781,10 +786,14 @@
         </div>
     </div>
     <div class="w-full h-16 mt-4">
-        <a href="https://github.com/NoobleMcScrunchkin/nooblemcscrunchkin.github.io">
-            <img class="mx-auto h-16 aspect-square hidden dark:block" src="img/github/GitHub-Mark-Light-120px-plus.png" alt="GitHub">
-            <img class="mx-auto h-16 aspect-square block dark:hidden" src="img/github/GitHub-Mark-120px-plus.png" alt="GitHub">
-        </a>
+        <div class="w-16 h-16 mx-auto">
+            <a href="https://github.com/NoobleMcScrunchkin/nooblemcscrunchkin.github.io">
+                <img class="w-16 h-16 aspect-square hidden dark:block" src="img/github/GitHub-Mark-Light-120px-plus.png"
+                    alt="GitHub">
+                <img class="w-16 h-16 aspect-square block dark:hidden" src="img/github/GitHub-Mark-120px-plus.png"
+                    alt="GitHub">
+            </a>
+        </div>
     </div>
     <script>
         let customTasksAllowed = false;
