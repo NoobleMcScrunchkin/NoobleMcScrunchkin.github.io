@@ -212,11 +212,11 @@
                 </div>
             </div>
             <div id="previewContainer"
-                class="w-1/2 border-l-4 border-zinc-300 dark:border-zinc-700 p-4 select-text overflow-auto text-left">
+                class="w-1/2 border-l-4 border-zinc-300 dark:border-zinc-700 p-4 overflow-auto text-left">
                 <button
                     class="py-2 w-full bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-300 hover:dark:bg-zinc-700 rounded"
                     onclick="save()">Save</button>
-                <pre class="mt-2" id="preview">PREVIEW HERE</pre>
+                <pre class="mt-2 select-text" id="preview">PREVIEW HERE</pre>
             </div>
         </div>
     </div>
@@ -324,7 +324,7 @@
 
         save = () => {
             if (document.querySelector('#preview').textContent == 'PREVIEW HERE') return;
-            
+
             download('customTasks.json', document.querySelector('#preview').textContent)
         }
 
