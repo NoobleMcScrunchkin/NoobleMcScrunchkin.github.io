@@ -52,3 +52,9 @@
 .inline {
     display: inline;
 }
+
+.text-outline {
+    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+    -webkit-text-stroke: 2px black;
+    color: white;
+}

@@ -16,7 +16,7 @@ openPopup = () => {
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-            <link rel="stylesheet" href="css/styles.css?v=1.7">
+            <link rel="stylesheet" href="css/styles.css?v=1.8">
             <title>Valorant - Strat Roulette</title>
         </head>
         <body class="bg-green-500 min-h-screen text-center p-4 text-white select-none">
@@ -28,7 +28,7 @@ openPopup = () => {
                     <img id="playerIcon4" class="h-24 aspect-square inline" src="https://via.placeholder.com/128" alt="Agent">
                     <img id="playerIcon5" class="h-24 aspect-square inline" src="https://via.placeholder.com/128" alt="Agent">
                 </div>
-                <div id="taskArea" class="mt-2 text-2xl font-valorant">
+                <div id="taskArea" class="mt-2 text-2xl font-valorant text-outline">
                     Please select a team.
                 </div>
             </div>
@@ -378,7 +378,7 @@ getJSON = (url, callback) => {
     xhr.send();
 };
 
-getJSON('defaultTasks.json?v=1.7', (error, res) => {
+getJSON('defaultTasks.json?v=1.8', (error, res) => {
     if (error) {
         console.error(error);
         return;
