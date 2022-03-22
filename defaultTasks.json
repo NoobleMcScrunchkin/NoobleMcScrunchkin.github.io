@@ -30,7 +30,10 @@
         "desc": "Kill The President: Decide someone on the opposite team that person must die before killing anyone else"
     },
     {
-        "desc": "Protect The President: Pick a player, give them the spike and hustle around them to plant"
+        "desc": "Protect The President: Pick a player, give them the spike and hustle around them to plant",
+        "restrictions": {
+            "team": "attack"
+        }        
     },
     {
         "desc": "Blinds here: Only players who can flash are allowed to use abilities and are only allowed to flash"
