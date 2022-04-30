@@ -107,6 +107,7 @@ const agents = [
     'sova',
     'viper',
     'yoru',
+    'fade',
 ];
 
 let takenAgents = [];
