@@ -16,7 +16,7 @@ openPopup = () => {
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-            <link rel="stylesheet" href="css/styles.css?v=1.11">
+            <link rel="stylesheet" href="css/styles.css?v=1.12">
             <title>Valorant - Strat Roulette</title>
         </head>
         <body class="bg-green-500 min-h-screen text-center p-4 text-white select-none">
@@ -164,6 +164,7 @@ const maps = [
     'fracture',
     'haven',
     'icebox',
+    'pearl',
     'split',
 ]
 
@@ -379,7 +380,7 @@ getJSON = (url, callback) => {
     xhr.send();
 };
 
-getJSON('defaultTasks.json?v=1.11', (error, res) => {
+getJSON('defaultTasks.json?v=1.12', (error, res) => {
     if (error) {
         console.error(error);
         return;
